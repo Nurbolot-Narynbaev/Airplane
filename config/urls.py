@@ -7,9 +7,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title='Library API',
+        title='Airport API',
         default_version='v1',
-        description='This is a library API',
+        description='This is a Airport API',
         terms_of_service='http://google.com/policies/terms',
         contact=openapi.Contact(email='contact@snippets.local'),
         license=openapi.License(name='BSD License')
@@ -22,5 +22,8 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'), 
     path('admin/', admin.site.urls),
-    path('api/books/', include('apps.book.urls'))
+
+    path("api/account/", include("apps.account.urls")),
+    path('api/airplanes/', include('apps.airplane.urls')),
+    path("api/review/",include("apps.review.urls")),
 ]
